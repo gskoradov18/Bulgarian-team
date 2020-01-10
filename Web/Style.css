@@ -18,6 +18,7 @@ body
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+    opacity: 0.9;
   }
   .sidebar a {
     padding: 8px 8px 8px 32px;
@@ -59,7 +60,6 @@ body
     transition: margin-left .7;
     padding: 16px;
   }
-  #mySidebar{opacity:0.9;}
   
   @media screen and (max-height: 450px) {
     .sidebar {padding-top: 15px;}
