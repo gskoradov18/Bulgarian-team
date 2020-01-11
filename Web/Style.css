@@ -45,6 +45,8 @@ body {
     background: linear-gradient(to bottom, #092979, #00d4ff);
     min-height: 100vh;
     overflow-x: hidden;
+    background-repeat:no-repeat ;
+    background-size: cover;
 }
 
 .separator {

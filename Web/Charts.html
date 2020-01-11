@@ -13,33 +13,77 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
 </head>
 <body>
-<div id="mySidebar" class="sidebar">
-    <a href="index.html">Home</a>
-    <a href="About.html">About</a>
-    <a href="Services.html">Services</a>
-    <a href="Contact.html">Contact</a>
-</div>
+<!--<div id="mySidebar" class="sidebar">-->
+    <!--<a href="index.html">Home</a>-->
+    <!--<a href="About.html">About</a>-->
+    <!--<a href="Services.html">Services</a>-->
+    <!--<a href="Contact.html">Contact</a>-->
+<!--</div>-->
+<div class="vertical-nav bg-white" id="sidebar">
 
-<div id="main">
-    <button class="openbtn" onclick="Nav()">☰</button>
 </div>
 <script src="Navigation_bar.js"></script>
-<div class="chart-container" style="position: relative; height: 80px; width: 120px;padding:100px; ">
-    <canvas id="myChart"></canvas>
+<div class="page-content p-5" id="content">
+    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4" onclick="Nav(1)"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
+
+
+    <div class="container">
+        <div class="row bg-dark rounded">
+            <div class="col-sm-4">
+                <button class="btn btn-outline-light">&nbsp;&nbsp;&nbsp;Posoki &nbsp;&nbsp;&nbsp;</button>
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-outline-light">&nbsp;&nbsp;&nbsp;Posoki &nbsp;&nbsp;&nbsp;</button>
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-outline-light">&nbsp;&nbsp;&nbsp;Posoki &nbsp;&nbsp;&nbsp;</button>
+            </div>
+        </div>
+        <div class="row bg-light rounded">
+                <div class="col-12">
+                    <canvas class="text-uppercase font-weight-bold" id="radarChart"></canvas>
+                </div>
+        </div>
+    </div>
 </div>
 <script>
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
+    var ctxR = document.getElementById("radarChart").getContext('2d');
+    var myRadarChart = new Chart(ctxR, {
         type: 'radar',
         data: {
-            labels: ['Running', 'Swimming', 'Eating', 'Cycling'],
+            labels: ["N", "NNE", "NE", "ENE", "E", "ESE", "SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"],
             datasets: [{
-                data: [20, 10, 4, 2]
-            }]
-        }})
-
+                label: "neshto",
+                data: [65, 59, 90, 81, 56, 55, 40],
+                backgroundColor: [
+                    'rgba(105, 0, 132, .2)',
+                ],
+                borderColor: [
+                    'rgba(200, 99, 132, .7)',
+                ],
+                borderWidth: 2
+            },
+                {
+                    label: "neshto 2",
+                    data: [28, 48, 40, 19, 96, 27, 100],
+                    backgroundColor: [
+                        'rgba(0, 250, 220, .2)',
+                    ],
+                    borderColor: [
+                        'rgba(0, 213, 132, .7)',
+                    ],
+                    borderWidth: 2
+                }
+            ]
+        },
+        options: {
+            responsive: true
+        }
+    });
 </script>
-
+<script>
+    $( "#sidebar" ).load( "Nav.html" );
+</script>
 
 </body>
 </html>
