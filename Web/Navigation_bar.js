@@ -1,16 +1,17 @@
 
 $("body").on('click', function (e) {
-    if (e.target.id != 'openbtn') {
+    if (e.target.id != 'sidebarCollapse"') {
         Nav(0);
     }
 });
 
 function Nav(param) {
-    if (document.getElementById("mySidebar").style.width == "250px" || param == 0) {
-        document.getElementById("mySidebar").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
+    if (param == 0) {
+        $('#sidebar, #content').toggleClass('active');
+        console.log("ekran");
+
     } else {
-        document.getElementById("mySidebar").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
+        $('#sidebar, #content').toggleClass('');
+        console.log("buton");
     }
 }

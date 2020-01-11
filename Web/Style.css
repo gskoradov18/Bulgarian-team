@@ -1,62 +1,61 @@
-html,body{
-    height:100%;
-}
-body
-{
-    background-image: url("https://images.hdqwalls.com/download/landscape-sky-beautiful-3840x2160.jpg");
-
-    background-position: center center; /* Background image is centered vertically and horizontally at all times */
-    background-repeat: no-repeat;  /* Background image doesn't tile */
-    background-attachment: fixed;/* Background image is fixed in the viewport so that it doesn't move when the content's height is greater than the image's height */
-    background-size: cover;/* This is what makes the background image rescale based on the container's size */
-}
-.sidebar {
-    height: 100%;
-    width: 0;
+.vertical-nav {
+    min-width: 17rem;
+    width: 17rem;
+    height: 100vh;
     position: fixed;
-    z-index: 1;
     top: 0;
     left: 0;
-    background-color: black;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+}
+
+.page-content {
+    width: calc(100% - 17rem);
+    margin-left: 17rem;
+    transition: all 0.4s;
+}
+#sidebar.active {
+    margin-left: -17rem;
+}
+
+#content.active {
+    width: 100%;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    #sidebar. {
+        margin-left: -17rem;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #content. {
+        width: 100%;
+        margin: 0;
+    }
+    #content.active {
+        margin-left: 17rem;
+        width: calc(100% - 17rem);
+    }
+}
+body {
+    background: #599fd9;
+    background: -webkit-linear-gradient(to bottom, #092979, #00d4ff);
+    background: linear-gradient(to bottom, #092979, #00d4ff);
+    min-height: 100vh;
     overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    opacity: 0.9;
-}
-.sidebar a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
 }
 
-
-.sidebar a:hover {
-    color: #f1f1f1;
+.separator {
+    margin: 3rem 0;
+    border-bottom: 1px dashed #fff;
 }
 
-
-.openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #111;
-    color: white;
-    padding: 10px 15px;
-    border: none;
+.text-uppercase {
+    letter-spacing: 0.1em;
 }
 
-.openbtn:hover {
-    background-color: #444;
-}
-
-#main {
-    transition: margin-left 0.7;
-    padding: 16px;
-}
-
-@media screen and (max-height: 450px) {
-    .sidebar {padding-top: 15px;}
-    .sidebar a {font-size: 18px;}
+.text-gray {
+    color: #aaa;
 }

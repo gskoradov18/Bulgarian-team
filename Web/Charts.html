@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tri</title>
+    <link rel="icon" href="https://cdn4.iconfinder.com/data/icons/marine-3/64/C_Sea_Sunset-512.png" type="image/gif" sizes="16x16"><!--Adding an icon to the site-->
+    <link rel="stylesheet" href="Style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Mobile first(responsive) from Bootstrap 4-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"><!--for css from Bootstrap 4-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><!--JQuery library from Bootstrap 4-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script><!--must include for Bootstrap 4-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script><!--must include for Bootstrap 4-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+</head>
+<body>
+<div id="mySidebar" class="sidebar">
+    <a href="index.html">Home</a>
+    <a href="About.html">About</a>
+    <a href="Services.html">Services</a>
+    <a href="Contact.html">Contact</a>
+</div>
+
+<div id="main">
+    <button class="openbtn" onclick="Nav()">☰</button>
+</div>
+<script src="Navigation_bar.js"></script>
+<div class="chart-container" style="position: relative; height: 80px; width: 120px;padding:100px; ">
+    <canvas id="myChart"></canvas>
+</div>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['Running', 'Swimming', 'Eating', 'Cycling'],
+            datasets: [{
+                data: [20, 10, 4, 2]
+            }]
+        }})
+
+</script>
+
+
+</body>
+</html>
