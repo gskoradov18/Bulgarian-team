@@ -1,12 +1,12 @@
 
 $("body").on('click', function (e) {
-    if (e.target.id != 'sidebarCollapse"') {
+    if (e.target.id !== 'sidebarCollapse"') {
         Nav(0);
     }
 });
 
 function Nav(param) {
-    if (param == 0) {
+    if (param === 0) {
         $('#sidebar, #content').toggleClass('active');
         console.log("ekran");
 
@@ -14,4 +14,8 @@ function Nav(param) {
         $('#sidebar, #content').toggleClass('');
         console.log("buton");
     }
+}
+function NavButton(e) {
+    e.stopPropagation();
+    Nav(1);
 }
