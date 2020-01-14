@@ -61,3 +61,19 @@ body {
 .text-gray {
     color: #aaa;
 }
+#map{
+    height: 100%;
+}
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:50%;
+    position:relative;
+    height:0;
+}
+.map-responsive #map{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}

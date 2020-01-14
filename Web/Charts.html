@@ -19,7 +19,7 @@
 
 </div>
 <div class="page-content p-5" id="content">
-    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4" onclick="Nav(1)"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
+    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4" onclick="Nav()"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
 
 
     <div class="container">
@@ -34,13 +34,35 @@
                 <button class="btn btn-outline-light">&nbsp;&nbsp;&nbsp;Posoki &nbsp;&nbsp;&nbsp;</button>
             </div>
         </div>
-        <div class="row bg-light rounded">
+        <div class="row bg-light rounded mb-5">
                 <div class="col-12">
                     <canvas class="text-uppercase font-weight-bold" id="radarChart"></canvas>
                 </div>
         </div>
     </div>
+    <div id="map-container" class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="map-responsive">
+                    <div id="map"></div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<script>
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 42.502787, lng: 27.452733},
+            zoom: 8
+        });
+        console.log("dsa");
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfJBulfextFpj8Uk8p65pp_x1FR-zI2wI&callback=initMap"
+        async defer></script>
 <script>
     var ctxR = document.getElementById("radarChart").getContext('2d');
     var myRadarChart = new Chart(ctxR, {
