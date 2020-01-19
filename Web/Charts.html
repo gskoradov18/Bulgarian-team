@@ -12,8 +12,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script><!--must include for Bootstrap 4-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
     <script src="JS/Navigation_bar.js"></script>
+    <script src="JS/Cookie.js"></script>
 </head>
-<body>
+<body onload="checkCookie()">
 <script src="JS/nav.js"></script>
 <div class="vertical-nav bg-white" id="sidebar">
 
@@ -35,9 +36,22 @@
             </div>
         </div>
         <div class="row bg-light rounded mb-5">
-                <div class="col-12">
+                <div class="col-sm-12">
                     <canvas class="text-uppercase font-weight-bold" id="radarChart"></canvas>
                 </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+
+            </div>
+            <div class="col-4">
+                <button class="btn btn-dark">This is not my location</button>
+            </div>
+            <div class="col-4">
+
+            </div>
         </div>
     </div>
     <div id="map-container" class="container">
@@ -45,7 +59,6 @@
             <div class="col-12">
                 <div class="map-responsive">
                     <div id="map"></div>
-                </div>
                 </div>
             </div>
         </div>
