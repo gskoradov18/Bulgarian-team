@@ -1,19 +1,11 @@
 
-var map, infoWindow,Lat_Cookie,Lng_Cookie,count;
+var map, infoWindow,Lat_Cookie,Lng_Cookie,Marker_count=0, gMarker = null;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -34.397, lng: 150.644},
         zoom: 6
     });
-    function CahngePosition(){ google.maps.event.addListener(map, 'click', function(event) {
-        var latitude = event.latLng.lat();
-        var longitude = event.latLng.lng();
-        var marker = new google.maps.Marker({
-            position:   {lat: latitude, lng: longitude},
-            map:map
-        });
 
-    });}
     infoWindow = new google.maps.InfoWindow;
 
     if (navigator.geolocation) {
@@ -41,6 +33,30 @@ function initMap() {
         infoWindow.open(map);
     }
 }
+function ChangePosition(marker_count){
+    google.maps.event.addListener(map, 'click', function(event) {
+
+        $("#MapButton").text("This is my position");
+        var latitude = event.latLng.lat();
+        var longitude = event.latLng.lng();
+
+        if (gMarker == null) {
+            gMarker = new google.maps.Marker({
+                position:   {lat: latitude, lng: longitude},
+                map:map
+            });
+        } else {
+            if (marker_count === 0) {
+                gMarker.setMap(null);
+            }
+            gMarker = new google.maps.Marker({
+                position:   {lat: latitude, lng: longitude},
+                map:map
+            });
+        }
+    });
+}
+
 function setCookie(cname,cvalue,exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));

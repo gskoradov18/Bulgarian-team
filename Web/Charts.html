@@ -13,6 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
     <script src="JS/Navigation_bar.js"></script>
     <script src="JS/Cookie.js"></script>
+    <script src="JS/Google_Map.js"></script>
 </head>
 <body onload="checkCookie()">
 <script src="JS/nav.js"></script>
@@ -47,7 +48,7 @@
 
             </div>
             <div class="col-4">
-                <button class="btn btn-dark">This is not my location</button>
+                <button id="MapButton" class="btn btn-dark" onclick="ChangePosition(0)">This is not my location</button>
             </div>
             <div class="col-4">
 
@@ -66,12 +67,7 @@
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfJBulfextFpj8Uk8p65pp_x1FR-zI2wI&callback=initMap"
         async defer></script>
-<script src="JS/Google_Map.js">
-    $(function(){
-        //alert();
-    });
 
-</script>
 <script>
     var ctxR = document.getElementById("radarChart").getContext('2d');
     var myRadarChart = new Chart(ctxR, {
