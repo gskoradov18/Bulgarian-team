@@ -21,14 +21,14 @@
 </head>
 <body>
 <!--Add the menu via js string-->
-<script src="nav.js"></script>
+<script src="JS/nav.js"></script>
 <div class="vertical-nav bg-white" id="sidebar">
 
 </div>
 <div class="page-content p-5" id="content">
 <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4" onclick="Nav()"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
 </div>
-<script src="Navigation_bar.js">
+<script src="JS/Navigation_bar.js">
     var obj = {
         "my-header" : {
             bg: "моят хедър",
@@ -42,7 +42,7 @@
 
     function changeMeTo(lang) {
         $('data-lang').each(function(){
-        <h1 data-lang="my-header"> My header</h1>
+        // <h1 data-lang="my-header"> My header</h1>
             var dataLangValue = $(this).data('lang'); // my-header
             $(this).text(obj.dataLangValue.lang);
         })

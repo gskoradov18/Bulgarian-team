@@ -11,10 +11,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script><!--must include for Bootstrap 4-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script><!--must include for Bootstrap 4-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
-    <script src="Navigation_bar.js"></script>
+    <script src="JS/Navigation_bar.js"></script>
 </head>
 <body>
-<script src="nav.js"></script>
+<script src="JS/nav.js"></script>
 <div class="vertical-nav bg-white" id="sidebar">
 
 </div>
@@ -51,18 +51,14 @@
         </div>
     </div>
 </div>
-<script>
-    var map;
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 42.502787, lng: 27.452733},
-            zoom: 8
-        });
-        console.log("dsa");
-    }
-</script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfJBulfextFpj8Uk8p65pp_x1FR-zI2wI&callback=initMap"
         async defer></script>
+<script src="JS/Google_Map.js">
+    $(function(){
+        //alert();
+    });
+
+</script>
 <script>
     var ctxR = document.getElementById("radarChart").getContext('2d');
     var myRadarChart = new Chart(ctxR, {
@@ -97,9 +93,10 @@
             responsive: true
         }
     });
+    $( "#sidebar" ).html( navigation );
 </script>
 <script>
-    $( "#sidebar" ).html( navigation );
+
 </script>
 
 </body>
