@@ -1,5 +1,5 @@
 
-var map, infoWindow,Lat_Cookie,Lng_Cookie,Marker_count=0, gMarker = null;
+var map, infoWindow,latitude,longitude, gMarker = null;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -34.397, lng: 150.644},
@@ -35,10 +35,9 @@ function initMap() {
 }
 function ChangePosition(marker_count){
     google.maps.event.addListener(map, 'click', function(event) {
-
-        $("#MapButton").text("This is my position");
-        var latitude = event.latLng.lat();
-        var longitude = event.latLng.lng();
+        document.getElementById("MapButton").style.visibility="visible";
+        latitude = event.latLng.lat();
+        longitude = event.latLng.lng();
 
         if (gMarker == null) {
             gMarker = new google.maps.Marker({
@@ -62,6 +61,7 @@ function setCookie(cname,cvalue,exdays) {
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires=" + d.toGMTString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 function getCookie(cname) {
     var name = cname + "=";
@@ -81,12 +81,11 @@ function getCookie(cname) {
 
 function checkCookie() {
     var user=getCookie("co");
-    if (user != "") {
-        initMap()
+    if (user !== "") {
+        document.getElementById("MapButtonNot").style.visibility="hidden";
+        document.getElementById("MapButton").style.visibility="hidden";
     } else {
-        user = prompt("Please enter your name:","");
-        if (user != "" && user != null) {
-            setCookie("username", user, 30);
-        }
+            setCookie("Co1", latitude, 30);
+            setCookie("Co2",longitude , 30);
     }
 }

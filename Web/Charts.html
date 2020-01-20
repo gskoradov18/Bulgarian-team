@@ -43,12 +43,13 @@
         </div>
     </div>
     <div class="container">
-        <div class="row">
+        <div class="row text-center text-justify">
             <div class="col-4">
 
             </div>
             <div class="col-4">
-                <button id="MapButton" class="btn btn-dark" onclick="ChangePosition(0)">This is not my location</button>
+                <button id="MapButtonNot"  class="btn btn-dark" onclick="ChangePosition(0)">This is not my location</button>
+                <button id="MapButton" class="btn btn-dark" style="visibility: hidden" onclick="checkCookie()">This is my location</button>
             </div>
             <div class="col-4">
 
