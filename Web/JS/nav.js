@@ -11,23 +11,22 @@ var navigation = '<div class="py-4 px-3 mb-4 bg-light">'+
     ''+
     '<ul class="nav flex-column bg-white mb-0">'+
     '    <li class="nav-item">'+
-    '        <a href="../index.html" class="nav-link text-dark font-italic bg-light">'+
+    '        <a href="index.html" class="nav-link text-dark font-italic bg-light">'+
     '            <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>'+
     '            Home'+
     '        </a>'+
     '    </li>'+
     '    <li class="nav-item">'+
-    '        <a href="../About.html" class="nav-link text-dark font-italic bg-light">'+
-    '            <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>'+
-    '            About'+
+    '        <a href="Charts.html" class="nav-link text-dark font-italic bg-light">'+
+    '            <i class="fa fa-chart-pie mr-3 text-primary fa-fw"></i>'+
+    '            Chart'+
     '        </a>'+
     '    </li>'+
     '    <li class="nav-item">'+
-    '        <a href="../Services.html" class="nav-link text-dark font-italic bg-light">'+
-    '            <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>'+
-    '            Services'+
+    '        <a href="About.html" class="nav-link text-dark font-italic bg-light">'+
+    '            <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>'+
+    '            About'+
     '        </a>'+
-    '    </li>'+
     '    </li>'+
     '</ul>'+
     ''+
