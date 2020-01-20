@@ -77,3 +77,7 @@ body {
     width:100%;
     position:absolute;
 }
+#cont
+{
+    opacity: 0.8;
+}
