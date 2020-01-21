@@ -20,6 +20,7 @@
     <!--must include for Bootstrap 4-->
 </head>
 <body>
+<script src="JS/Translate.js"></script>
 <!--Add the menu via js string-->
 <script src="JS/nav.js"></script>
 <div class="vertical-nav bg-white" id="sidebar">
@@ -27,15 +28,15 @@
 </div>
 <div class="page-content p-5" id="content">
 <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4" onclick="Nav()"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
-<div id="cont"class="container text-center text-justify">
-    <button type="button" class="btn">What is Blue Economy</button>
+<div id="cont" class="container text-center text-justify">
+    <button type="button" class="btn" onclick="changeMeTo('bg')">What is Blue Economy</button>
     <div class="row bg-light">
         <div class="col">
 
         </div>
         <div class="col-8 text-black">
             <br>
-            <h2 class="font-weight-bolds">What is Blue Economy ?</h2>
+            <h2 class="font-weight-bolds" data-lang="Blue Economy Title1">What is Blue Economy ?</h2>
             <p class="text-justify">According to the World Bank, the blue economy is the "sustainable use of ocean resources for economic growth, improved livelihoods, and jobs while preserving the health of ocean ecosystem."
                 European Commission defines it as "All economic activities related to oceans, seas and coasts. It covers a wide range of interlinked established and emerging sectors."
                 The Commonwealth of Nations considers it "an emerging concept which encourages better stewardship of our ocean or 'blue' resources."
@@ -113,24 +114,7 @@
   
   </footer>
 <script src="JS/Navigation_bar.js">
-    var obj = {
-        "my-header" : {
-            bg: "моят хедър",
-            en: "my header"
-        },
-        "neshto": {
-            bg: "моят хедър",
-            en: "my header"
-        }
-    }
 
-    function changeMeTo(lang) {
-        $('data-lang').each(function(){
-        // <h1 data-lang="my-header"> My header</h1>
-            var dataLangValue = $(this).data('lang'); // my-header
-            $(this).text(obj.dataLangValue.lang);
-        })
-    }
     //Ignoriraite tva v proces na razrabotka e
 </script>
 <script>
