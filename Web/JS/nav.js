@@ -34,8 +34,8 @@ var navigation = '<div class="py-4 px-3 mb-4 bg-light">'+
     ''+
     '<ul class="nav flex-column bg-white mb-0">'+
     '    <li class="nav-item">'+
-    '        <a href="#" class="nav-link text-dark font-Arial bg-light">'+
-    '            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUhG0jP8F_McAvQnitygBBBPYM_CYatvBG01dcpTJztWe8Y3Nx&s" alt="..." width="55" class="mr-4 rounded-pill border border-dark">'+
+    '        <a href="#" class="nav-link text-dark font-Arial bg-light" >'+
+    '            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUhG0jP8F_McAvQnitygBBBPYM_CYatvBG01dcpTJztWe8Y3Nx&s" alt="..." width="55" class="mr-4 rounded-pill border border-dark" >'+
     '            Bulgarian'+
     '        </a>'+
     '    </li>'+
