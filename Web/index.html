@@ -29,8 +29,8 @@
 <div class="page-content p-5" id="content">
 <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4" onclick="Nav()"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
 <div id="cont" class="container text-center text-justify">
-    <button type="button" class="btn" onclick="changeMeTo('bg')"><i>Blue Economy</i></button>
-    <div class="row bg-light">
+    <button type="button" class="btn" id="ShowText"><i>Blue Economy</i></button>
+    <div class="row bg-light" id="text" style="display: none;">
         <div class="col">
 
         </div>
@@ -102,20 +102,32 @@
 </div>
 
 </div>
-<footer class="page-footer font-small blue">
+<footer class="page-footer font-small blue" style="flex-shrink: none;">
 
 <!-- Copyright -->
-<div id="footer"class="footer-copyright text-center py-3">© 2020 Copyright:
-    <p class="font-weight-light text-muted mb-0">Ivan_D</p>
-    <p class="font-weight-light text-muted mb-0">Martin_A</p>
-    <p class="font-weight-light text-muted mb-0">Georgi_K</p>
+<div id="footer"class="container text-center">
+    <span>© 2020 Copyright:</span>
+    <div  class="font-weight-light text-muted mb-0">
+    <p>Ivan_D</p>
+    <p>Martin_A</p>
+    <p>Georgi_K</p>
+    </div>
 </div>
 <!-- Copyright -->
   
   </footer>
+  <script>
+      $( document).ready(function() {
+  $( "#ShowText" ).click(function(){
+      $('#text').fadeIn(1000);
+    }); 
+});
+    // Animation complete.
+  </script>
 <script src="JS/Navigation_bar.js">
 
     //Ignoriraite tva v proces na razrabotka e
+</script>
 </script>
 <script>
     $( "#sidebar" ).html( navigation );

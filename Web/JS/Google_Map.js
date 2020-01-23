@@ -60,9 +60,9 @@ function setCookie(cname,cvalue,exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires=" + d.toGMTString();
-    document.cookie = cname + "=" + cvalue + "; SameSite=None; Secure" + expires + ";path=/";
+    document.cookie = cname + "=" + cvalue + ';SameSite=None; Secure' + expires + ';path=/';
     console.log("123");
-    document.cookie = cname + "=" + cvalue + "; SameSite=None; Secure" + expires + ";path=/";
+    document.cookie = cname + "=" + cvalue + ';SameSite=None; Secure' + expires + ';path=/';
 }
 function getCookie(cname) {
     var name = cname + "=";
