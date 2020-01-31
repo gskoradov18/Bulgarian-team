@@ -113,14 +113,21 @@
 </div>>
 </footer>
   <!-- Footer -->
+<script>
+
+</script>
+  <!-- Footer -->
   <script>
       $( document).ready(function() {
   $( "#ShowText" ).click(function(){
-      $('#text').fadeIn(1000);
+        $('#footer').ready(function(){
+            document.getElementById("footer").className = "footer font-small blue sticky";
+        })
+        $('#text').fadeIn(1000);
     }); 
 });
     // Animation complete.
-  </script>
+  </script></script>
 <script src="JS/Navigation_bar.js">
 
     //Ignoriraite tva v proces na razrabotka e
