@@ -12,14 +12,18 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script><!--must include for Bootstrap 4-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
     <script src="JS/Navigation_bar.js"></script>
-    <script src="JS/Cookie.js"></script>
     <script src="JS/Google_Map.js"></script>
 </head>
-<body onload="checkCookie()">
+<body>
 <script src="JS/nav.js"></script>
 <div class="vertical-nav bg-white" id="sidebar">
 
 </div>
+<script>
+    $(document).ready(function () {
+        checkCookie();
+    });
+</script>
 <div class="page-content p-5" id="content">
     <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4" onclick="Nav()"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
 
