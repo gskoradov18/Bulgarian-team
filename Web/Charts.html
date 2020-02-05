@@ -20,8 +20,17 @@
 
 </div>
 <script>
+
+    function retrieveData(){
+        console.log("retrieveData");
+        $.getJSON( "http://blynk-cloud.com/UWTOAploXLDZ7e8fqY81foQMNUdhkJlt/get/V5", function( data ) {
+            console.log(data);
+        });
+    }
+
     $(document).ready(function () {
         checkCookie();
+        setInterval(retrieveData, 4000);
     });
 </script>
 <div class="page-content p-5" id="content">
@@ -61,11 +70,46 @@
         </div>
     </div>
     <div id="map-container" class="container">
-        <div class="row">
+        <div class="row mb-5">
             <div class="col-12">
                 <div class="map-responsive">
                     <div id="map"></div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row bg-light rounded mb-5">
+            <div class="col-sm-12">
+                <canvas class="text-uppercase font-weight-bold" id="Wind speed-chart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row bg-light rounded mb-5">
+            <div class="col-sm-12">
+                <canvas class="text-uppercase font-weight-bold" id="Temperature-chart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row bg-light rounded mb-5">
+            <div class="col-sm-12">
+                <canvas class="text-uppercase font-weight-bold" id="Humidity-chart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row bg-light rounded mb-5">
+            <div class="col-sm-12">
+                <canvas class="text-uppercase font-weight-bold" id="Barometric pressure-chart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row bg-light rounded mb-5">
+            <div class="col-sm-12">
+                <canvas class="text-uppercase font-weight-bold" id="Rain fall-chart"></canvas>
             </div>
         </div>
     </div>
@@ -74,11 +118,126 @@
         async defer></script>
 
 <script>
+    var ArduinoInfo="315,0.0m/s,20.00mm,23.33C,36%,1019.30hPa\n";
+    var ArduinoArr = ArduinoInfo.split(",");
+    var today = new Date();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    // function fn60sec() {
+    // }
+    // fn60sec();
+    // setInterval(fn60sec, 5*1000);
+
+    function addMinutes(seconds) {
+
+        var kartof2=new Date(today.getTime() + seconds*100 + 7200000);
+        var kartof1=JSON.stringify(kartof2);
+        var kartof=kartof1.split(" ");
+        kartof=kartof[0].split("T");
+        kartof=kartof[1].split(".");
+        kartof=kartof[0].split(":");
+        var TimeForCharts=kartof[0]+":"+kartof[1]+":"+kartof[2];
+        return TimeForCharts;
+    }
+    new Chart(document.getElementById("Wind speed-chart").getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: [addMinutes(0) ,addMinutes(5),addMinutes(10),addMinutes(15),addMinutes(20),addMinutes(25),addMinutes(30),addMinutes(35),addMinutes(40),addMinutes(45)],
+            datasets: [{
+                data: [5,2,3,6,1,7,8,9,2,5],
+                label: "Arduino station",
+                borderColor: "#3e95cd",
+                fill: false
+            }
+            ]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Max Wind speed m/s'
+            }
+        }
+    });
+    new Chart(document.getElementById("Temperature-chart").getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: [addMinutes(0) ,addMinutes(5),addMinutes(10),addMinutes(15),addMinutes(20),addMinutes(25),addMinutes(30),addMinutes(35),addMinutes(40),addMinutes(45)],
+            datasets: [{
+                data: [5,2,3,6,1,7,8,9,2,5],
+                label: "Arduino station",
+                borderColor: "#8e2ecd",
+                fill: false
+            }
+            ]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Temperatur C'
+            }
+        }
+    });
+    new Chart(document.getElementById("Humidity-chart").getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: [addMinutes(0) ,addMinutes(5),addMinutes(10),addMinutes(15),addMinutes(20),addMinutes(25),addMinutes(30),addMinutes(35),addMinutes(40),addMinutes(45)],
+            datasets: [{
+                data: [5,2,3,6,1,7,8,9,2,5],
+                label: "Arduino station",
+                borderColor: "#66cd57",
+                fill: false
+            }
+            ]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Humidity %'
+            }
+        }
+    });
+    new Chart(document.getElementById("Barometric pressure-chart").getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: [addMinutes(0) ,addMinutes(5),addMinutes(10),addMinutes(15),addMinutes(20),addMinutes(25),addMinutes(30),addMinutes(35),addMinutes(40),addMinutes(45)],
+            datasets: [{
+                data: [5,2,3,6,1,7,8,9,2,5],
+                label: "Arduino station",
+                borderColor: "#cdc02b",
+                fill: false
+            }
+            ]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Barometric pressure hPa'
+            }
+        }
+    });
+    new Chart(document.getElementById("Rain fall-chart" ).getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: [addMinutes(0) ,addMinutes(5),addMinutes(10),addMinutes(15),addMinutes(20),addMinutes(25),addMinutes(30),addMinutes(35),addMinutes(40),addMinutes(45)],
+            datasets: [{
+                data: [5,2,3,6,1,7,8,9,2,5],
+                label: "Arduino station",
+                borderColor: "#cd172a",
+                fill: false
+            }
+            ]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Rain fall mm'
+            }
+        }
+    });
     var ctxR = document.getElementById("radarChart").getContext('2d');
     var myRadarChart = new Chart(ctxR, {
         type: 'radar',
         data: {
-            labels: ["N", "NNE", "NE", "ENE", "E", "ESE", "SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"],
+            labels: ["  N", "NNE", "NE", "ENE", "E", "ESE", "SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"],
             datasets: [{
                 label: "neshto",
                 data: [65, 59, 90, 81, 56, 55, 40],

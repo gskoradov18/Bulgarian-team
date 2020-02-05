@@ -9,31 +9,23 @@ function initMap() {
     infoWindow = new google.maps.InfoWindow;
     if (checkCookie()!==""){
         var fixedPos=checkCookie();
-        console.log(fixedPos);
 
         let pos1 = {
             lat: parseFloat(fixedPos[0]),
             lng: parseFloat(fixedPos[1])
         };
-
-        console.log(pos1);
         infoWindow.setPosition(pos1);
-        alert("baca1");
         infoWindow.setContent('Your Location.');
         infoWindow.open(map);
         map.setCenter(pos1);
-        console.log("MAKO");
     }
     else {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
-                console.log(position);
                 var pos = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
-                console.log("MAKO3");
-                console.log(pos);
                 infoWindow.setPosition(pos);
                 infoWindow.setContent('Your Location.');
                 infoWindow.open(map);
