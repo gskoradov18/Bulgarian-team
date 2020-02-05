@@ -114,4 +114,25 @@ void loop()
   Serial.println("hPa");
   Serial.println("");
    Serial.println("");
+   
+   if(WindDirection() < 22)
+Serial.println("N");
+else if (WindDirection() < 67)
+Serial.println("NE");
+else if (WindDirection() < 112)
+Serial.println("E");
+else if (WindDirection() < 157)
+Serial.println("SE");
+else if (WindDirection() < 212)
+Serial.println("S");
+else if (WindDirection() < 247)
+Serial.println("SW");
+else if (WindDirection() < 292)
+Serial.println("W");
+else if (WindDirection() < 337)
+Serial.println("NW");
+else
+Serial.println("N");
+ Serial.println("  ");
+  Serial.println("  ");
 }
