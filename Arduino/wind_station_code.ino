@@ -1,5 +1,6 @@
-char                 databuffer[35];
+char                 databuffer[36];
 double               temp;
+char dataString[50] = {0};
 
 void getBuffer()                                                                    //Get weather status data
 {
@@ -83,11 +84,17 @@ float BarPressure()                                                             
 
 void setup()
 {
-  Serial.begin(9600);
+  
+  Serial.begin(2400);
+  Serial.println("Setting up software serial");
+  Serial.println("Setup end");
 }
 void loop()
 {
-  getBuffer();                                                                      //Begin!
+  getBuffer();
+  sprintf(dataString, "WD: %0.3d | WS(1m): %0.3f | WS(5m): %0.3f", WindDirection(), WindSpeedMax());
+  Serial.println(dataString);
+  /*
   Serial.print("Wind Direction: ");
   Serial.print(WindDirection());
   Serial.println("  ");
@@ -113,5 +120,28 @@ void loop()
   Serial.print(BarPressure());
   Serial.println("hPa");
   Serial.println("");
-   Serial.println("");
+  Serial.println("");
+   
+     if(WindDirection() < 22)
+  Serial.println("N");
+  else if (WindDirection() < 67)
+  Serial.println("NE");
+  else if (WindDirection() < 112)
+  Serial.println("E");
+  else if (WindDirection() < 157)
+  Serial.println("SE");
+  else if (WindDirection() < 212)
+  Serial.println("S");
+  else if (WindDirection() < 247)
+  Serial.println("SW");
+  else if (WindDirection() < 292)
+  Serial.println("W");
+  else if (WindDirection() < 337)
+  Serial.println("NW");
+  else
+  Serial.println("N");
+   Serial.println("  ");
+    Serial.println("  ");
+*/
+    delay(800);
 }
