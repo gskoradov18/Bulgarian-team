@@ -9,7 +9,6 @@ function initMap() {
     infoWindow = new google.maps.InfoWindow;
     if (checkCookie()!==""){
         var fixedPos=checkCookie();
-
         let pos1 = {
             lat: parseFloat(fixedPos[0]),
             lng: parseFloat(fixedPos[1])

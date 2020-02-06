@@ -20,17 +20,9 @@
 
 </div>
 <script>
-
-    function retrieveData(){
-        console.log("retrieveData");
-        $.getJSON( "http://blynk-cloud.com/UWTOAploXLDZ7e8fqY81foQMNUdhkJlt/get/V5", function( data ) {
-            console.log(data);
-        });
-    }
-
     $(document).ready(function () {
         checkCookie();
-        setInterval(retrieveData, 4000);
+        // setInterval(retrieveData, 4000);
     });
 </script>
 <div class="page-content p-5" id="content">
@@ -118,8 +110,18 @@
         async defer></script>
 
 <script>
-    var ArduinoInfo="315,0.0m/s,20.00mm,23.33C,36%,1019.30hPa\n";
-    var ArduinoArr = ArduinoInfo.split(",");
+    var windespeed=0
+    function retrieveData(){
+        console.log("retrieveData");
+        var i=0;
+        $.getJSON( "http://blynk-cloud.com/UWTOAploXLDZ7e8fqY81foQMNUdhkJlt/get/V5", function( data ) {
+
+            var ArduinoInfo=data[0].split(",");
+            windespeed[i] =  ArduinoInfo[1];
+            i++;
+        });
+    }
+    setInterval(retrieveData, 4000);
     var today = new Date();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     // function fn60sec() {
@@ -129,21 +131,22 @@
 
     function addMinutes(seconds) {
 
-        var kartof2=new Date(today.getTime() + seconds*100 + 7200000);
-        var kartof1=JSON.stringify(kartof2);
-        var kartof=kartof1.split(" ");
-        kartof=kartof[0].split("T");
-        kartof=kartof[1].split(".");
-        kartof=kartof[0].split(":");
-        var TimeForCharts=kartof[0]+":"+kartof[1]+":"+kartof[2];
+        var DateNow=new Date(today.getTime() + seconds*100 + 7200000);
+        var StringDate=JSON.stringify(DateNow);
+        var Time=StringDate.split(" ");
+        Time=Time[0].split("T");
+        Time=Time[1].split(".");
+        Time=Time[0].split(":");
+        var TimeForCharts=Time[0]+":"+Time[1]+":"+Time[2];
         return TimeForCharts;
     }
+    var i =0;
     new Chart(document.getElementById("Wind speed-chart").getContext('2d'), {
         type: 'line',
         data: {
             labels: [addMinutes(0) ,addMinutes(5),addMinutes(10),addMinutes(15),addMinutes(20),addMinutes(25),addMinutes(30),addMinutes(35),addMinutes(40),addMinutes(45)],
             datasets: [{
-                data: [5,2,3,6,1,7,8,9,2,5],
+                data: [windespeed[i],2,3,6,1,7,8,9,2,5],
                 label: "Arduino station",
                 borderColor: "#3e95cd",
                 fill: false
@@ -268,10 +271,10 @@
     });
     $( "#sidebar" ).html( navigation );
 </script>
-<script>
+<!-- <script>
     $( "#sidebar" ).html( navigation );
     document.body.style.backgroundImage = "url(https://wallpaperaccess.com/full/1638770.jpg)";// background image
-</script>
+</script> -->
 
 </body>
 </html>

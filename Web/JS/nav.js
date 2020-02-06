@@ -46,7 +46,7 @@ var navigation = '<div class="py-4 px-3 mb-4 bg-light">'+
     '        </a>'+
     '    </li>'+
     '    <li class="nav-item">'+
-    '        <a href="#" class="nav-link text-dark font-Arial bg-light">'+
+    '        <a onclick="changeMeTo(\'ru\')" href="#" class="nav-link text-dark font-Arial bg-light">'+
     '            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm9mODl8V1ODA8ERv6om22e1QA4IMe9Rq4Wc-CFI6KAaiRzamP&s" alt="..." width="55" class="mr-4 rounded-pill border border-dark">'+
     '            Russian'+
     '        </a>'+
