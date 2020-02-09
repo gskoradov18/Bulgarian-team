@@ -14,6 +14,9 @@
     margin-left: 17rem;
     transition: all 0.4s;
 }
+
+/* for toggle behavior */
+
 #sidebar.active {
     margin-left: -17rem;
 }
@@ -24,21 +27,22 @@
 }
 
 @media (max-width: 768px) {
-    #sidebar. {
+    #sidebar {
         margin-left: -17rem;
     }
     #sidebar.active {
         margin-left: 0;
     }
-    #content. {
+    #content {
         width: 100%;
         margin: 0;
     }
     #content.active {
         margin-left: 17rem;
-        width: calc(100% - 17rem);
+        width: calc(80% - 17rem);
     }
 }
+
 body {
     background: #599fd9;
     background: -webkit-linear-gradient(to bottom, #092979, #00d4ff);
@@ -47,7 +51,7 @@ body {
     overflow-x: hidden;
     background-repeat:no-repeat ;
     background-size: auto;
-    
+
 }
 
 .separator {
