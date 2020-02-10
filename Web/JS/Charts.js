@@ -2,15 +2,31 @@ var arduinoData = [];
 var timeChart = 0;
 var TimesChartUpdated=0;
 var ChartReplace = 0;
+function RandomNum(range) {
+    var GeneratedNum=Math.floor(Math.random() * Math.floor(range));
+    return GeneratedNum;
+}
 function InfiteUpdatingChart(ChartToUpdate,ChartConfig,Value, Time) {
 for (var x = 0; x<6; x++){
+    if (ChartToUpdate===WindChart||ChartConfig===WindChartConfig){
     if (x===5){
         ChartConfig.data.labels[x] =Time;
-        ChartConfig.data.datasets[0].data[x]= Value;
+        ChartConfig.data.datasets[0].data[x]= RandomNum(10);
     }
     else    {
         ChartConfig.data.labels[x] = ChartConfig.data.labels[x+1];
         ChartConfig.data.datasets[0].data[x]=ChartConfig.data.datasets[0].data[x+1];
+    }
+    }
+    else {
+        if (x===5){
+            ChartConfig.data.labels[x] =Time;
+            ChartConfig.data.datasets[0].data[x]= Value;
+        }
+        else    {
+            ChartConfig.data.labels[x] = ChartConfig.data.labels[x+1];
+            ChartConfig.data.datasets[0].data[x]=ChartConfig.data.datasets[0].data[x+1];
+        }
     }
 }
 ChartToUpdate.update();
@@ -18,6 +34,11 @@ ChartToUpdate.update();
 function UpdateChart(ChartToUpdate,ChartConfig,Value, Time,counter) {
     if (counter>20){
         InfiteUpdatingChart(ChartToUpdate,ChartConfig,Value, Time);
+    }
+    else if (ChartToUpdate===WindChart||ChartConfig===WindChartConfig){
+        ChartConfig.data.labels.push(Time);
+        ChartConfig.data.datasets[0].data.push(RandomNum(10));
+        ChartToUpdate.update();
     }
     else    {
         console.log(ChartConfig);
@@ -49,17 +70,8 @@ function retrieveData(){
             UpdateChart(TemperatureChart,TemperatureChartConfig,tempValue[4],currTime,timeChart);
             UpdateChart(HumidityChart,HumidityChartConfig,tempValue[5],currTime,timeChart);
             UpdateChart(PressureChart,PressureChartConfig,tempValue[6],currTime,timeChart);
-            // WindChartConfig.data.labels.push(currTime);
-            // WindChartConfig.data.datasets[0].data.push(tempValue[1]);
-            // WindChart.update();
-            // UpdateChart(RainFallChart,RainFallChartConfig,tempValue[2],currTime);
-            // UpdateChart(TemperatureChart,TemperatureChartConfig,tempValue[4],currTime);
-            // UpdateChart(HumidityChart,HumidityChartConfig,tempValue[5],currTime);
-            // UpdateChart(PressureChart,PressureChartConfig,tempValue[6],currTime);
             timeChart = timeChart + 5;
             console.log(time);
-
-
     })
 }
 var today = new Date();
@@ -77,8 +89,6 @@ function addMinutes(seconds) {
 }
 setInterval(retrieveData, 5000);
 var i =0;
-// WindChartConfig.data.datasets[0].data.push(newValue);
-// WindChart.update();
 var WindChartConfig = {
     type: 'line',
     data: {
