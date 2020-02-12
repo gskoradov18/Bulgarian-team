@@ -2,7 +2,7 @@
 var navigation = '<div class="py-4 px-3 mb-4 bg-light">'+
     '    <div class="media d-flex align-items-center"><img src="https://i.pinimg.com/originals/b6/33/44/b6334469fbe97790d56440950813e0ed.png" alt="..." width="85" class="mr-3 rounded-square img-thumbnail shadow-sm">'+
     '        <div class="media-body">'+
-    '            <h4 class="m-0">Bulgaria on 3 oceans</h4>'+
+    '            <h4 class="m-0">Bulgarian team</h4>'+
     '        </div>'+
     '    </div>'+
     '</div>'+

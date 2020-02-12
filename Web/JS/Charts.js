@@ -8,7 +8,7 @@ function RandomNum(range) {
 }
 function InfiteUpdatingChart(ChartToUpdate,ChartConfig,Value, Time) {
 for (var x = 0; x<6; x++){
-    if (ChartToUpdate===WindChart||ChartConfig===WindChartConfig){
+    if (ChartToUpdate===WindChart||ChartConfig===WindChartConfig||ChartToUpdate===RainFallChart){
     if (x===5){
         ChartConfig.data.labels[x] =Time;
         ChartConfig.data.datasets[0].data[x]= RandomNum(10);
@@ -35,7 +35,7 @@ function UpdateChart(ChartToUpdate,ChartConfig,Value, Time,counter) {
     if (counter>20){
         InfiteUpdatingChart(ChartToUpdate,ChartConfig,Value, Time);
     }
-    else if (ChartToUpdate===WindChart||ChartConfig===WindChartConfig){
+    else if (ChartToUpdate===WindChart||ChartConfig===WindChartConfig||ChartToUpdate===RainFallChart){
         ChartConfig.data.labels.push(Time);
         ChartConfig.data.datasets[0].data.push(RandomNum(10));
         ChartToUpdate.update();
@@ -70,6 +70,7 @@ function retrieveData(){
             UpdateChart(TemperatureChart,TemperatureChartConfig,tempValue[4],currTime,timeChart);
             UpdateChart(HumidityChart,HumidityChartConfig,tempValue[5],currTime,timeChart);
             UpdateChart(PressureChart,PressureChartConfig,tempValue[6],currTime,timeChart);
+            UpdateChart(RainFallChart,RainFallChartConfig,tempValue[6],currTime,timeChart);
             timeChart = timeChart + 5;
             console.log(time);
     })
