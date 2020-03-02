@@ -151,7 +151,6 @@ var dataBaseValues=['speed','temperature','humidity','pressure','rain'];
         })
         .fail(function(err) {
             console.log( "error" );
-            console.log(err);
         });
 // function RandomNum(range) {
 //     var GeneratedNum=Math.floor(Math.random() * Math.floor(range));
