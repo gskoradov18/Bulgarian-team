@@ -134,23 +134,22 @@ var WindDirectionChartConfig = {
     }
 };
 var WindDirectionChart = new Chart(document.getElementById("Wind Direction Chart").getContext('2d'), WindDirectionChartConfig);
-var chartsConfig=['WindChartConfig','TemperatureChartConfig','HumidityChartConfig','PressureChartConfig','RainFallChartConfig'];
-var charts=['WindChart','TemperatureChart','HumidityChart','PressureChart','RainFallChart'];
+var chartsConfig=[WindChartConfig,TemperatureChartConfig,HumidityChartConfig,PressureChartConfig,RainFallChartConfig];
+var charts=[WindChart,TemperatureChart,HumidityChart,PressureChart,RainFallChart];
 var dataBaseValues=['speed','temperature','humidity','pressure','rain'];
     $.getJSON('JS/server_data.php', {}, function(data) {
     })
             .done(function(data) {
-                console.log(data);
-                for (var j=0;j<6;j++){
-                console.log(data[dataBaseValues[j]]['value'][0]);
+                for (var j=0;j<5;j++){
                 for (var i=0;i<6;i++){
-                    chartsConfig[j].data.datasets[0].data.push(data[dataBaseValues[i]]['value'][i]);
-                    chartsConfig[j].data.labels[i]=data[dataBaseValues[i]]['timestamp'][i];
+                    console.log(data[dataBaseValues[i]]);
+                    chartsConfig[j].data.datasets[0].data[i]=data[dataBaseValues[j]]['value'][i];
+                    chartsConfig[j].data.labels[i]=data[dataBaseValues[j]]['timestamp'][i];
                 }
                 charts[j].update();}
         })
         .fail(function(err) {
-            console.log( "error" );
+            alert("There is a error with the JSON request to the php");
         });
 // function RandomNum(range) {
 //     var GeneratedNum=Math.floor(Math.random() * Math.floor(range));
